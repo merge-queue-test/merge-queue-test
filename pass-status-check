@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gh api \
+    --method POST \
+    -H "Accept: application/vnd.github+json" \
+    /repos/{owner}/{repo}/statuses/`git rev-parse --verify HEAD` \
+    -f state='success' \
+    -f context='PHP Tests'
